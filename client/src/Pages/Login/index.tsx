@@ -21,6 +21,7 @@ const Login = () => {
         console.log(resp)
         if(resp.status === 200){
           navigate("/")
+          localStorage.setItem("userItem", JSON.stringify(resp.data))
         }
     } catch (error: any) {
       console.error(error);
