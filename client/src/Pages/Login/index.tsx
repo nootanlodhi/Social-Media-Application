@@ -2,7 +2,7 @@ import { Box, Button, Grid, InputAdornment, TextField, Typography } from "@mui/m
 import { muicss } from "../../Utils/muicss"
 import { useState } from "react"
 import { ILoginPayload } from "../../Interface/interface"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { login } from "../../Services/services"
 
 const Login = () => {
@@ -13,11 +13,15 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg , setErrorMsg] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleRegister = async() =>{
     try {
         const resp = await login(userDetails);
         console.log(resp)
+        if(resp.status === 200){
+          navigate("/")
+        }
     } catch (error: any) {
       console.error(error);
       if (error.response) {

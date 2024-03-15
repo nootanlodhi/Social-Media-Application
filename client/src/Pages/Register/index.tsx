@@ -3,7 +3,7 @@ import { muicss } from "../../Utils/muicss"
 import { useState } from "react"
 import { IRegisterPayload, ValidationErrors } from "../../Interface/interface"
 import { register } from "../../Services/services"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { validateValues } from "../../Utils/util"
 
 const Register = () => {
@@ -19,6 +19,7 @@ const Register = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg , setErrorMsg] = useState<ValidationErrors>({});
+  const navigate = useNavigate();
 
   const handleRegister = async() =>{
     const error = validateValues(userDetails);
@@ -27,7 +28,9 @@ const Register = () => {
       console.log(userDetails,'userDetails', error)
       try {
         const resp = await register(userDetails);
-        console.log(resp);
+        if(resp.status === 200){
+          navigate("/login")
+        }
       } catch (error) {
         console.error(error)
       }
