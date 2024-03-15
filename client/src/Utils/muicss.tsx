@@ -11,7 +11,7 @@ export const muicss = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "40%",
+    // width: "40%",
     backgroundColor: "#fff",
     padding: "2rem",
     gap: "1rem",

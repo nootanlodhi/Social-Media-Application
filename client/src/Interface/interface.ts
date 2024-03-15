@@ -9,6 +9,11 @@ export interface IRegisterPayload {
     age: number | string
 }
 
+export interface ILoginPayload {
+    username: string;
+    password: string;
+}
+
 export type ValidationErrors = {
     username?: string;
     name?: string;

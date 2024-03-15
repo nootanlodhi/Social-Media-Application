@@ -44,7 +44,7 @@ const Register = () => {
 
   return (
     <Box sx={muicss.authContainer}>
-      <Box sx={muicss.authWrapper}>
+      <Box sx={muicss.authWrapper} width={"40%"}>
         <Grid container spacing={2}>
           <Grid item xs={12} textAlign={"center"}>
             <Typography variant="h4">Create New Account</Typography>
