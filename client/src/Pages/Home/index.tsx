@@ -1,8 +1,12 @@
-import React from 'react'
+import { Box } from '@mui/material'
+import { muicss } from '../../Utils/muicss'
+import HomeSidebar from './HomeSidebar'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <Box sx={muicss.homeContainer}>
+      <HomeSidebar/>
+    </Box>
   )
 }
 
